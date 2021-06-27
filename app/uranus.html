@@ -48,12 +48,25 @@
                     but it contains more "ices" such as water, ammonia, and methane, along with traces of other hydrocarbons.
                     It has the coldest planetary atmosphere in the Solar System, with a minimum temperature of 49 K (−224 °C; −371 °F),
                     and has a complex, layered cloud structure with water thought to make up the lowest clouds and methane the uppermost layer of clouds.
-                    The interior of Uranus is mainly composed of ices and rock.[15]</p>
-                <div class="extra-section">
+                    The interior of Uranus is mainly composed of ices and rock.</p>
+                <div class="extra-section row">
                     <script id="uranusTemplateExtra" type="text/x-handlebars-template">
-                        <p>Discover by: <span>{{discoveredBy}}</span></p>
-                        <p>Discover Date: <span>{{discoveryDate}}</span></p>
-                        <p>Moon name: <span>{{moons}}</span></p>
+                        {{#if isDiscovered}}
+                        <div class="col-12 col-sm-12 col-lg-12 col-xl-12">
+                            <p>Discover by: <span>{{discoveredBy}}</span></p>
+                            <p>Discover Date: <span>{{discoveryDate}}</span></p>
+                        </div>
+                        {{/if}}
+                        {{#if hasMoon}}
+                        <div class="col-12 col-sm-12 col-lg-12 col-xl-12">
+                            <p>Moon name:</p>
+                            <ol class="moon-list">
+                                {{#each moons}}
+                                <li>{{this.moon}}</li>
+                                {{/each}}
+                            </ol>
+                        </div>
+                        {{/if}}
                     </script>
                 </div>
             </div>

@@ -12,8 +12,17 @@ h1,h2,h3 {
   padding-top: 12.5%;
 }
 
+.moon-list {
+  width: 20%;
+  border-bottom: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  overflow: scroll;
+  height: 15rem;
+}
+
 .planet-img {
-  padding-top: 2rem;
+  position: relative;
+  padding-top: 1.5rem;
   width: 90%;
   height: 90%;
 }

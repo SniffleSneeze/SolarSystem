@@ -57,30 +57,43 @@ async function getPlanetData(){
     let uranusData = await getUranusData()
     let neptuneData = await getNeptuneData()
 
-    dataDisplay(mercuryData,'#mercuryTemplate','#mercuryTemplateExtra')
-    dataDisplay(venusData,'#venusTemplate','#venusTemplateExtra')
-    dataDisplay(earthData,'#earthTemplate','#eartTemplateExtra')
-    dataDisplay(marsData,'#marsTemplate','#marsTemplateExtra')
-    dataDisplay(jupiterData,'#jupiterTemplate','#jupiterTemplateExtra')
-    dataDisplay(saturnData,'#saturnTemplate','#saturnTemplateExtra')
-    dataDisplay(uranusData,'#uranusTemplate','#uranusTemplateExtra')
-    dataDisplay(neptuneData,'#neptuneTemplate','#neptuneTemplateExtra')
+     dataDisplay(mercuryData,'#mercuryTemplate','#mercuryTemplateExtra')
+     dataDisplay(venusData,'#venusTemplate','#venusTemplateExtra')
+     dataDisplay(earthData,'#earthTemplate','#earthTemplateExtra')
+     dataDisplay(marsData,'#marsTemplate','#marsTemplateExtra')
+     dataDisplay(jupiterData,'#jupiterTemplate','#jupiterTemplateExtra')
+     dataDisplay(saturnData,'#saturnTemplate','#saturnTemplateExtra')
+     dataDisplay(uranusData,'#uranusTemplate','#uranusTemplateExtra')
+     dataDisplay(neptuneData,'#neptuneTemplate','#neptuneTemplateExtra')
 
 }
 
 async function dataDisplay(obj,id1,id2) {
     const sourceOne = await document.querySelector(id1).innerHTML
     const sourceTwo = await document.querySelector(id2).innerHTML
-    const templateOne =  await Handlebars.compile(sourceOne)
-    const templateTwo =  await Handlebars.compile(sourceTwo)
-    const targetOne =  await document.querySelector('.details-section')
-    const targetTwo =  await document.querySelector('.extra-section')
+    const templateOne = await Handlebars.compile(sourceOne)
+    const templateTwo = await Handlebars.compile(sourceTwo)
+    const targetOne = await document.querySelector('.details-section')
+    const targetTwo = await document.querySelector('.extra-section')
+
 
      obj['bodies'].forEach(key => {
-        console.log(key)
+         if (key['moons'] != null) {
+             obj['bodies']['0']['hasMoon'] = true
+         } else {
+             obj['bodies']['0']['hasMoon'] = false
+         }
+
+         if (key['discoveredBy'] != '') {
+             obj['bodies']['0']['isDiscovered'] = true
+         } else {
+             obj['bodies']['0']['isDiscovered'] = false
+         }
         targetOne.innerHTML = templateOne(key)
         targetTwo.innerHTML = templateTwo(key)
     })
+
+    console.log(obj['bodies']['0']['moons'])
 }
 
 getPlanetData()

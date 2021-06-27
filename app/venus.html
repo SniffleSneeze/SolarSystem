@@ -52,9 +52,22 @@
                     a distinction it shares only with Mercury among the planets in the Solar System.</p>
                 <div class="extra-section">
                     <script id="venusTemplateExtra" type="text/x-handlebars-template">
-                        <p>Discover by: <span>{{discoveredBy}}</span></p>
-                        <p>Discover Date: <span>{{discoveryDate}}</span></p>
-                        <p>Moon name: <span>{{moons}}</span></p>
+                        {{#if isDiscovered}}
+                        <div class="col-12 col-sm-12 col-lg-12 col-xl-12">
+                            <p>Discover by: <span>{{discoveredBy}}</span></p>
+                            <p>Discover Date: <span>{{discoveryDate}}</span></p>
+                        </div>
+                        {{/if}}
+                        {{#if hasMoon}}
+                        <div class="col-12 col-sm-12 col-lg-12 col-xl-12">
+                            <p>Moon name:</p>
+                            <ol class="moon-list">
+                                {{#each moons}}
+                                <li>{{this.moon}}</li>
+                                {{/each}}
+                            </ol>
+                        </div>
+                        {{/if}}
                     </script>
                 </div>
             </div>
