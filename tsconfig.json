@@ -1,6 +1,7 @@
 {
   "files": [
-    "app/js/app.ts"
+    "app/js/app.ts",
+    "app/js/types.d.ts"
   ],
   "compilerOptions": {
     "removeComments": true,
