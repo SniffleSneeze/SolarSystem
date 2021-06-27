@@ -9,7 +9,7 @@ h1,h2,h3 {
 }
 
 .info-planet {
-  padding-top: 12.5%;
+  padding-top: 10%;
 }
 
 .moon-list {
@@ -17,7 +17,7 @@ h1,h2,h3 {
   border-bottom: 2px solid #ffffff;
   border-top: 2px solid #ffffff;
   overflow: scroll;
-  height: 15rem;
+  max-height: 23rem;
 }
 
 .planet-img {
