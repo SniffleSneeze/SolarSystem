@@ -89,8 +89,8 @@ async function dataDisplay(obj,id1,id2) {
          } else {
              obj['bodies']['0']['isDiscovered'] = false
          }
-        targetOne.innerHTML = templateOne(key)
-        targetTwo.innerHTML = templateTwo(key)
+         targetOne.innerHTML =  templateOne(key)
+         targetTwo.innerHTML = templateTwo(key)
     })
 
     console.log(obj['bodies']['0']['moons'])
